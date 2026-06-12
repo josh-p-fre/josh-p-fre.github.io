@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Freeman Blackthorn Capital — Sales Agency · Gold Coast</title>
+  <meta name="description" content="Freeman Blackthorn Capital is a commission-only sales agency on the Gold Coast. We generate leads, make the calls, and close the deals. You only pay when we perform.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #0C0C0E;
+      --charcoal: #141418;
+      --charcoal-2: #1C1C22;
+      --navy: #1B2A4A;
+      --navy-dim: rgba(27,42,74,0.6);
+      --navy-faint: rgba(27,42,74,0.15);
+      --grey: #A0A0A8;
+      --grey-dim: rgba(160,160,168,0.35);
+      --grey-faint: rgba(160,160,168,0.08);
+      --white: #F0EEE8;
+      --border: rgba(160,160,168,0.1);
+      --border-navy: rgba(27,42,74,0.5);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      background: var(--black);
+      color: var(--white);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ─── HERO ─── */
+    .fbc-hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      justify-content: flex-end;
+      padding: 0 64px 96px;
+      position: relative; overflow: hidden;
+      background: var(--black);
+    }
+
+    .fbc-hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+    }
+
+    .fbc-hero-bg img {
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+      filter: brightness(0.2);
+    }
+
+    .fbc-hero-accent {
+      position: absolute; left: 64px; top: 0; bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent 10%, var(--navy) 35%, var(--navy) 65%, transparent 90%);
+      z-index: 1;
+    }
+
+    .fbc-hero-content {
+      position: relative; z-index: 2;
+      padding-left: 40px;
+    }
+
+    .fbc-hero-label {
+      font-size: 9px; font-weight: 400;
+      letter-spacing: 0.55em; text-transform: uppercase;
+      color: var(--grey); margin-bottom: 28px; display: block;
+      opacity: 0; animation: fbcFade 0.8s 0.4s ease forwards;
+    }
+
+    .fbc-hero h1 {
+      font-family: 'Cormorant', serif;
+      font-size: clamp(64px, 8.5vw, 140px);
+      font-weight: 300; line-height: 0.92;
+      letter-spacing: -0.02em; color: var(--white);
+      opacity: 0; animation: fbcFade 1.2s 0.6s ease forwards;
+    }
+
+    .fbc-h1-2 {
+      display: block; color: var(--grey-dim);
+      font-style: italic; font-weight: 300;
+    }
+
+    .fbc-hero-bottom {
+      display: flex; align-items: flex-end;
+      justify-content: space-between; margin-top: 64px;
+      padding-left: 40px; position: relative; z-index: 2;
+      opacity: 0; animation: fbcFade 0.8s 1.2s ease forwards;
+    }
+
+    .fbc-hero-tagline {
+      font-size: 13px; font-weight: 300;
+      color: var(--grey); line-height: 1.7;
+      letter-spacing: 0.06em; max-width: 380px;
+    }
+
+    .fbc-hero-tagline strong {
+      color: var(--white); font-weight: 400;
+      display: block; margin-bottom: 6px; font-size: 14px;
+    }
+
+    .fbc-cta-group { display: flex; flex-direction: column; align-items: flex-end; gap: 12px; }
+
+    .fbc-btn-primary {
+      display: inline-block; font-size: 10px; font-weight: 500;
+      letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--black); background: var(--white);
+      border: none; padding: 16px 40px;
+      cursor: pointer; font-family: 'Inter', sans-serif;
+      transition: all 0.25s; text-decoration: none;
+    }
+
+    .fbc-btn-primary:hover { background: var(--grey); transform: translateY(-1px); }
+
+    .fbc-btn-ghost {
+      font-size: 10px; font-weight: 400;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--grey); text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .fbc-btn-ghost:hover { color: var(--white); }
+
+    /* ─── DIVIDER ─── */
+    .fbc-divider {
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--border), transparent);
+    }
+
+    /* ─── EYEBROW ─── */
+    .fbc-eyebrow {
+      font-size: 9px; font-weight: 400;
+      letter-spacing: 0.55em; text-transform: uppercase;
+      color: var(--grey); margin-bottom: 24px; display: block;
+    }
+
+    /* ─── SERVICES ─── */
+    .fbc-services {
+      padding: 140px 64px;
+      max-width: 1400px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1.6fr;
+      gap: 120px; align-items: start;
+    }
+
+    .fbc-services-left h2 {
+      font-family: 'Cormorant', serif;
+      font-size: clamp(40px, 4vw, 64px);
+      font-weight: 300; line-height: 1.05;
+      letter-spacing: -0.01em; color: var(--white);
+    }
+
+    .fbc-services-left h2 em { font-style: italic; color: var(--grey-dim); }
+
+    .fbc-services-left p {
+      font-size: 14px; font-weight: 300;
+      color: var(--grey); line-height: 1.85;
+      letter-spacing: 0.04em; margin-top: 28px; max-width: 320px;
+    }
+
+    .fbc-services-right { display: flex; flex-direction: column; gap: 2px; }
+
+    .fbc-service {
+      padding: 40px 40px 40px 48px;
+      border: 1px solid var(--border);
+      background: var(--charcoal);
+      position: relative; overflow: hidden;
+      transition: border-color 0.4s;
+    }
+
+    .fbc-service::before {
+      content: ''; position: absolute;
+      left: 0; top: 0; bottom: 0; width: 3px;
+      background: var(--navy);
+      transform: scaleY(0); transform-origin: bottom;
+      transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    .fbc-service:hover { border-color: var(--border-navy); }
+    .fbc-service:hover::before { transform: scaleY(1); }
+
+    .fbc-service-num {
+      font-size: 9px; font-weight: 400;
+      letter-spacing: 0.4em; color: var(--grey);
+      margin-bottom: 16px; display: block;
+    }
+
+    .fbc-service-title {
+      font-family: 'Cormorant', serif;
+      font-size: 28px; font-weight: 400;
+      color: var(--white); margin-bottom: 12px;
+    }
+
+    .fbc-service-desc {
+      font-size: 13px; font-weight: 300;
+      color: var(--grey); line-height: 1.75; letter-spacing: 0.03em;
+    }
+
+    /* ─── WHO ─── */
+    .fbc-who {
+      padding: 140px 64px;
+      background: var(--charcoal);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .fbc-who-inner { max-width: 1400px; margin: 0 auto; }
+
+    .fbc-who-header { margin-bottom: 80px; }
+
+    .fbc-who-header h2 {
+      font-family: 'Cormorant', serif;
+      font-size: clamp(40px, 4.5vw, 72px);
+      font-weight: 300; line-height: 1.0;
+      letter-spacing: -0.02em; color: var(--white); max-width: 700px;
+    }
+
+    .fbc-who-header h2 em { font-style: italic; color: var(--grey-dim); }
+
+    .fbc-who-header p {
+      font-size: 14px; font-weight: 300;
+      color: var(--grey); line-height: 1.8;
+      margin-top: 24px; max-width: 480px; letter-spacing: 0.04em;
+    }
+
+    .fbc-who-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+
+    .fbc-who-card {
+      padding: 48px 36px;
+      background: var(--charcoal-2);
+      border: 1px solid var(--border);
+      transition: background 0.3s, border-color 0.3s;
+    }
+
+    .fbc-who-card:hover { background: var(--black); border-color: var(--border-navy); }
+
+    .fbc-who-ico { font-size: 24px; margin-bottom: 20px; display: block; }
+
+    .fbc-who-title {
+      font-family: 'Cormorant', serif;
+      font-size: 22px; font-weight: 400; color: var(--white); margin-bottom: 10px;
+    }
+
+    .fbc-who-desc {
+      font-size: 13px; font-weight: 300; color: var(--grey); line-height: 1.7; letter-spacing: 0.03em;
+    }
+
+    /* ─── HOW ─── */
+    .fbc-how { padding: 140px 64px; max-width: 1400px; margin: 0 auto; }
+
+    .fbc-how-header { text-align: center; margin-bottom: 100px; }
+
+    .fbc-how-header h2 {
+      font-family: 'Cormorant', serif;
+      font-size: clamp(40px, 4.5vw, 72px);
+      font-weight: 300; line-height: 1.0;
+      letter-spacing: -0.02em; color: var(--white);
+    }
+
+    .fbc-how-header h2 em { font-style: italic; color: var(--grey-dim); }
+
+    .fbc-steps {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 0; position: relative;
+    }
+
+    .fbc-steps::before {
+      content: ''; position: absolute; top: 20px;
+      left: 12%; right: 12%; height: 1px;
+      background: linear-gradient(to right, transparent, var(--navy), var(--navy), transparent);
+    }
+
+    .fbc-step { padding: 0 28px; text-align: center; }
+
+    .fbc-step-node {
+      width: 40px; height: 40px;
+      border: 1px solid var(--navy);
+      background: var(--black);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 32px; position: relative; z-index: 1;
+      font-size: 10px; font-weight: 500; letter-spacing: 0.15em; color: var(--grey);
+      transition: all 0.3s;
+    }
+
+    .fbc-step:hover .fbc-step-node { background: var(--navy); color: var(--white); }
+
+    .fbc-step-title {
+      font-family: 'Cormorant', serif;
+      font-size: 22px; font-weight: 400; color: var(--white); margin-bottom: 12px;
+    }
+
+    .fbc-step-desc {
+      font-size: 12px; font-weight: 300; color: var(--grey); line-height: 1.75; letter-spacing: 0.03em;
+    }
+
+    /* ─── WHY ─── */
+    .fbc-why {
+      padding: 140px 64px;
+      background: var(--charcoal);
+      border-top: 1px solid var(--border);
+    }
+
+    .fbc-why-inner {
+      max-width: 1400px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 120px; align-items: center;
+    }
+
+    .fbc-why-left h2 {
+      font-family: 'Cormorant', serif;
+      font-size: clamp(40px, 4.5vw, 72px);
+      font-weight: 300; line-height: 1.0;
+      letter-spacing: -0.02em; color: var(--white); margin-bottom: 28px;
+    }
+
+    .fbc-why-left h2 em { font-style: italic; color: var(--grey-dim); }
+
+    .fbc-why-left p {
+      font-size: 14px; font-weight: 300;
+      color: var(--grey); line-height: 1.85;
+      letter-spacing: 0.04em; margin-bottom: 16px;
+    }
+
+    .fbc-why-right { display: flex; flex-direction: column; gap: 2px; }
+
+    .fbc-why-point {
+      padding: 28px 32px;
+      background: var(--charcoal-2); border: 1px solid var(--border);
+      display: flex; align-items: flex-start; gap: 20px;
+      transition: border-color 0.3s;
+    }
+
+    .fbc-why-point:hover { border-color: var(--border-navy); }
+
+    .fbc-why-ico { font-size: 16px; flex-shrink: 0; margin-top: 2px; }
+    .fbc-why-title { font-size: 13px; font-weight: 500; color: var(--white); margin-bottom: 4px; letter-spacing: 0.05em; }
+    .fbc-why-desc { font-size: 12px; font-weight: 300; color: var(--grey); line-height: 1.65; }
+
+    /* ─── CONTACT ─── */
+    .fbc-contact-wrap {
+      border-top: 1px solid var(--border);
+      background: var(--black);
+    }
+
+    .fbc-contact {
+      padding: 140px 64px;
+      max-width: 1400px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 120px; align-items: start;
+    }
+
+    .fbc-contact-left h2 {
+      font-family: 'Cormorant', serif;
+      font-size: clamp(40px, 4.5vw, 72px);
+      font-weight: 300; line-height: 1.0;
+      letter-spacing: -0.02em; color: var(--white); margin-bottom: 24px;
+    }
+
+    .fbc-contact-left h2 em { font-style: italic; color: var(--grey-dim); }
+
+    .fbc-contact-left p {
+      font-size: 14px; font-weight: 300;
+      color: var(--grey); line-height: 1.85;
+      letter-spacing: 0.04em; margin-bottom: 48px;
+    }
+
+    .fbc-contact-details { display: flex; flex-direction: column; gap: 16px; }
+
+    .fbc-contact-item { display: flex; align-items: center; gap: 16px; }
+
+    .fbc-contact-label {
+      font-size: 9px; font-weight: 400;
+      letter-spacing: 0.4em; text-transform: uppercase;
+      color: var(--grey); width: 60px; flex-shrink: 0;
+    }
+
+    .fbc-contact-val {
+      font-size: 14px; font-weight: 300;
+      color: var(--white); text-decoration: none; transition: color 0.2s;
+    }
+
+    .fbc-contact-val:hover { color: var(--grey); }
+
+    .fbc-form { display: flex; flex-direction: column; gap: 2px; }
+
+    .fbc-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+
+    .fbc-form-group { display: flex; flex-direction: column; }
+
+    .fbc-form-label {
+      font-size: 9px; font-weight: 400;
+      letter-spacing: 0.4em; text-transform: uppercase;
+      color: var(--grey); padding: 14px 18px 8px;
+      background: var(--charcoal-2); border: 1px solid var(--border); border-bottom: none;
+    }
+
+    .fbc-form-input {
+      background: var(--charcoal-2); border: 1px solid var(--border); border-top: none;
+      padding: 12px 18px 16px; color: var(--white);
+      font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 300;
+      outline: none; transition: border-color 0.3s; width: 100%;
+      -webkit-appearance: none;
+    }
+
+    .fbc-form-input option { background: var(--charcoal-2); color: var(--white); }
+
+    .fbc-form-input:focus { border-color: var(--navy); }
+
+    select.fbc-form-input { cursor: pointer; }
+
+    textarea.fbc-form-input { resize: none; height: 120px; }
+
+    .fbc-form-submit {
+      margin-top: 2px; background: var(--white); color: var(--black);
+      border: none; padding: 18px 32px;
+      font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 500;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      cursor: pointer; transition: all 0.3s; width: 100%;
+    }
+
+    .fbc-form-submit:hover { background: var(--grey); }
+
+    .fbc-form-success {
+      display: none; text-align: center; padding: 48px 32px;
+      background: var(--charcoal-2); border: 1px solid var(--border);
+    }
+
+    .fbc-form-success p {
+      font-family: 'Cormorant', serif;
+      font-size: 24px; font-weight: 300; font-style: italic; color: var(--white);
+    }
+
+    /* ─── FOOTER ─── */
+    .fbc-footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 64px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+
+    .fbc-footer-logo {
+      font-family: 'Cormorant', serif;
+      font-size: 14px; font-weight: 400;
+      color: var(--grey); letter-spacing: 0.08em;
+    }
+
+    .fbc-footer-copy {
+      font-size: 11px; font-weight: 300;
+      color: var(--grey); letter-spacing: 0.06em;
+      opacity: 0.5;
+    }
+
+    /* ─── REVEAL ─── */
+    .fbc-reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.9s ease, transform 0.9s ease; }
+    .fbc-reveal.fbc-vis { opacity: 1; transform: translateY(0); }
+    .fbc-d1 { transition-delay: 0.1s; }
+    .fbc-d2 { transition-delay: 0.2s; }
+    .fbc-d3 { transition-delay: 0.3s; }
+
+    @keyframes fbcFade {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ─── MOBILE ─── */
+    @media (max-width: 768px) {
+      .fbc-hero { padding: 0 24px 80px; }
+      .fbc-hero-accent { left: 24px; }
+      .fbc-hero-content { padding-left: 24px; }
+      .fbc-hero-bottom { flex-direction: column; align-items: flex-start; gap: 32px; padding-left: 24px; margin-top: 40px; }
+      .fbc-cta-group { align-items: flex-start; }
+      .fbc-services { grid-template-columns: 1fr; gap: 56px; padding: 80px 24px; }
+      .fbc-services-left p { max-width: 100%; }
+      .fbc-who { padding: 80px 24px; }
+      .fbc-who-grid { grid-template-columns: 1fr; }
+      .fbc-how { padding: 80px 24px; }
+      .fbc-steps { grid-template-columns: 1fr 1fr; gap: 40px; }
+      .fbc-steps::before { display: none; }
+      .fbc-step { padding: 0; }
+      .fbc-why { padding: 80px 24px; }
+      .fbc-why-inner { grid-template-columns: 1fr; gap: 48px; }
+      .fbc-contact { grid-template-columns: 1fr; gap: 56px; padding: 80px 24px; }
+      .fbc-form-row { grid-template-columns: 1fr; }
+      .fbc-footer { flex-direction: column; gap: 12px; padding: 32px 24px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="fbc-hero" id="fbc-hero">
+    <div class="fbc-hero-accent"></div>
+    <div class="fbc-hero-content">
+      <span class="fbc-hero-label">Sales Agency · Gold Coast, Australia</span>
+      <h1>
+        We close.<br>
+        <span class="fbc-h1-2">We scale.</span>
+        We win.
+      </h1>
+    </div>
+    <div class="fbc-hero-bottom">
+      <div class="fbc-hero-tagline">
+        <strong>Full-service sales, end to end.</strong>
+        You built something worth selling. We generate the leads, make the calls, and close the deals — on commission. You only pay when we perform.
+      </div>
+      <div class="fbc-cta-group">
+        <a href="#fbc-contact" class="fbc-btn-primary">Start a Conversation</a>
+        <a href="#fbc-services" class="fbc-btn-ghost">See what we do →</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="fbc-divider"></div>
+
+  <!-- SERVICES -->
+  <section id="fbc-services">
+    <div class="fbc-services">
+      <div class="fbc-services-left fbc-reveal">
+        <span class="fbc-eyebrow">What We Do</span>
+        <h2>The full<br>pipeline.<br><em>Handled.</em></h2>
+        <p>Most businesses have a great product and a broken sales process. We fix that. From first contact to signed deal — we own the entire sales function so you can focus on delivering.</p>
+      </div>
+      <div class="fbc-services-right">
+        <div class="fbc-service fbc-reveal">
+          <span class="fbc-service-num">01</span>
+          <div class="fbc-service-title">Lead Generation</div>
+          <p class="fbc-service-desc">We identify, research, and build targeted prospect lists for your exact market. No random outreach — every lead is qualified before we make contact.</p>
+        </div>
+        <div class="fbc-service fbc-reveal fbc-d1">
+          <span class="fbc-service-num">02</span>
+          <div class="fbc-service-title">Outbound Sales</div>
+          <p class="fbc-service-desc">Cold calls, emails, follow-ups. We handle every touchpoint with professionalism and precision. High volume, high quality — built to convert.</p>
+        </div>
+        <div class="fbc-service fbc-reveal fbc-d2">
+          <span class="fbc-service-num">03</span>
+          <div class="fbc-service-title">Deal Closing</div>
+          <p class="fbc-service-desc">We don't just book meetings. We close. Our team takes prospects from interested to signed — and we only get paid when the deal is done.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="fbc-divider"></div>
+
+  <!-- WHO -->
+  <section class="fbc-who">
+    <div class="fbc-who-inner">
+      <div class="fbc-who-header fbc-reveal">
+        <span class="fbc-eyebrow">Who We Work With</span>
+        <h2>Good businesses that deserve<br><em>better sales.</em></h2>
+        <p>We work with small to medium businesses that have a strong product or service but don't have the time, team, or expertise to sell it properly.</p>
+      </div>
+      <div class="fbc-who-grid">
+        <div class="fbc-who-card fbc-reveal">
+          <span class="fbc-who-ico">🍽️</span>
+          <div class="fbc-who-title">Hospitality & Food</div>
+          <p class="fbc-who-desc">Restaurants, venues, catering companies, and food businesses that need more bookings, events, and corporate clients.</p>
+        </div>
+        <div class="fbc-who-card fbc-reveal fbc-d1">
+          <span class="fbc-who-ico">🔧</span>
+          <div class="fbc-who-title">Trade & Services</div>
+          <p class="fbc-who-desc">Builders, electricians, cleaners, and service providers who are too busy doing the work to sell more of it.</p>
+        </div>
+        <div class="fbc-who-card fbc-reveal fbc-d2">
+          <span class="fbc-who-ico">💼</span>
+          <div class="fbc-who-title">Professional Services</div>
+          <p class="fbc-who-desc">Accountants, consultants, agencies, and professionals who need a consistent pipeline without cold calling themselves.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="fbc-divider"></div>
+
+  <!-- HOW -->
+  <section id="fbc-how">
+    <div class="fbc-how">
+      <div class="fbc-how-header fbc-reveal">
+        <span class="fbc-eyebrow">The Process</span>
+        <h2>Simple. <em>Effective.</em><br>Results-driven.</h2>
+      </div>
+      <div class="fbc-steps">
+        <div class="fbc-step fbc-reveal">
+          <div class="fbc-step-node">01</div>
+          <div class="fbc-step-title">Discovery</div>
+          <p class="fbc-step-desc">We learn your business, your offer, your ideal client, and what a good deal looks like for you.</p>
+        </div>
+        <div class="fbc-step fbc-reveal fbc-d1">
+          <div class="fbc-step-node">02</div>
+          <div class="fbc-step-title">Strategy</div>
+          <p class="fbc-step-desc">We build your prospect list, craft your outreach messaging, and agree on commission structure.</p>
+        </div>
+        <div class="fbc-step fbc-reveal fbc-d2">
+          <div class="fbc-step-node">03</div>
+          <div class="fbc-step-title">Execution</div>
+          <p class="fbc-step-desc">We generate leads, make calls, handle objections, and push every prospect toward a close.</p>
+        </div>
+        <div class="fbc-step fbc-reveal fbc-d3">
+          <div class="fbc-step-node">04</div>
+          <div class="fbc-step-title">Results</div>
+          <p class="fbc-step-desc">Deals close. You pay commission. We scale what works and keep pushing your pipeline forward.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="fbc-divider"></div>
+
+  <!-- WHY -->
+  <section class="fbc-why">
+    <div class="fbc-why-inner">
+      <div class="fbc-why-left fbc-reveal">
+        <span class="fbc-eyebrow">Why Freeman Blackthorn</span>
+        <h2>We don't get paid<br><em>unless you do.</em></h2>
+        <p>Commission-only means our success is completely tied to yours. No retainers, no monthly fees, no paying for effort. You pay a percentage of closed deals and nothing else.</p>
+        <p>That's not just a pricing model — it's a statement of confidence in what we do.</p>
+      </div>
+      <div class="fbc-why-right fbc-reveal fbc-d1">
+        <div class="fbc-why-point">
+          <div class="fbc-why-ico">💰</div>
+          <div>
+            <div class="fbc-why-title">Commission Only</div>
+            <p class="fbc-why-desc">Zero upfront cost. You pay a percentage of revenue we generate. If we don't close, you don't pay.</p>
+          </div>
+        </div>
+        <div class="fbc-why-point">
+          <div class="fbc-why-ico">🎯</div>
+          <div>
+            <div class="fbc-why-title">Full Pipeline Ownership</div>
+            <p class="fbc-why-desc">We handle lead generation, outreach, follow-up, and closing. You don't lift a finger.</p>
+          </div>
+        </div>
+        <div class="fbc-why-point">
+          <div class="fbc-why-ico">📈</div>
+          <div>
+            <div class="fbc-why-title">Built to Scale</div>
+            <p class="fbc-why-desc">As results grow, we grow with you. The more we close, the more aligned our incentives become.</p>
+          </div>
+        </div>
+        <div class="fbc-why-point">
+          <div class="fbc-why-ico">🤝</div>
+          <div>
+            <div class="fbc-why-title">True Partnership</div>
+            <p class="fbc-why-desc">We represent your brand professionally. Every call, every email, every interaction reflects your business.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="fbc-divider"></div>
+
+  <!-- CONTACT -->
+  <div class="fbc-contact-wrap" id="fbc-contact">
+    <div class="fbc-contact">
+      <div class="fbc-contact-left fbc-reveal">
+        <span class="fbc-eyebrow">Get In Touch</span>
+        <h2>Let's talk<br><em>revenue.</em></h2>
+        <p>Tell us about your business and what you're trying to sell. If we're a good fit, we'll put together a commission structure and get started.</p>
+        <div class="fbc-contact-details">
+          <div class="fbc-contact-item">
+            <span class="fbc-contact-label">Phone</span>
+            <a href="tel:0474706176" class="fbc-contact-val">0474 706 176</a>
+          </div>
+          <div class="fbc-contact-item">
+            <span class="fbc-contact-label">Email</span>
+            <a href="mailto:josh@freemanblackthorn.com" class="fbc-contact-val">josh@freemanblackthorn.com</a>
+          </div>
+          <div class="fbc-contact-item">
+            <span class="fbc-contact-label">Based</span>
+            <span class="fbc-contact-val">Gold Coast, Australia</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="fbc-reveal fbc-d1">
+        <form class="fbc-form" id="fbc-form"
+              action="https://formspree.io/f/xlgkwblo"
+              method="POST">
+          <div class="fbc-form-row">
+            <div class="fbc-form-group">
+              <label class="fbc-form-label" for="fbc-name">Name</label>
+              <input class="fbc-form-input" type="text" id="fbc-name" name="name" required>
+            </div>
+            <div class="fbc-form-group">
+              <label class="fbc-form-label" for="fbc-biz">Business</label>
+              <input class="fbc-form-input" type="text" id="fbc-biz" name="business" required>
+            </div>
+          </div>
+          <div class="fbc-form-group">
+            <label class="fbc-form-label" for="fbc-email">Email</label>
+            <input class="fbc-form-input" type="email" id="fbc-email" name="email" required>
+          </div>
+          <div class="fbc-form-group">
+            <label class="fbc-form-label" for="fbc-industry">Industry</label>
+            <select class="fbc-form-input" id="fbc-industry" name="industry">
+              <option value="">Select your industry</option>
+              <option>Hospitality & Food</option>
+              <option>Trade & Services</option>
+              <option>Professional Services</option>
+              <option>Retail & Ecommerce</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="fbc-form-group">
+            <label class="fbc-form-label" for="fbc-msg">Tell us about your business</label>
+            <textarea class="fbc-form-input" id="fbc-msg" name="message" required></textarea>
+          </div>
+          <button type="submit" class="fbc-form-submit">Send Enquiry</button>
+        </form>
+        <div class="fbc-form-success" id="fbc-success">
+          <p>Enquiry received. We'll be in touch shortly.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="fbc-footer">
+    <span class="fbc-footer-logo">Freeman Blackthorn Capital</span>
+    <span class="fbc-footer-copy">© 2025 Freeman Blackthorn Capital · Gold Coast, Australia</span>
+  </footer>
+
+  <script>
+    var fbcObs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){ e.target.classList.add('fbc-vis'); fbcObs.unobserve(e.target); }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fbc-reveal').forEach(function(el){ fbcObs.observe(el); });
+
+    var fbcForm = document.getElementById('fbc-form');
+    if (fbcForm) {
+      fbcForm.addEventListener('submit', function(e){
+        e.preventDefault();
+        fetch(fbcForm.action, {
+          method: 'POST', body: new FormData(fbcForm),
+          headers: { 'Accept': 'application/json' }
+        }).then(function(r){
+          if (r.ok) {
+            fbcForm.style.display = 'none';
+            document.getElementById('fbc-success').style.display = 'block';
+          }
+        });
+      });
+    }
+  </script>
+
+</body>
+</html>
